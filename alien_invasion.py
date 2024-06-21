@@ -24,6 +24,12 @@ class AlienInvasion:
 
         self.create_fleet()
 
+    def _create_fleet(self):
+        """Create the fleet of aliens"""
+        # Make an alien.
+        alien = Alien(self)
+        self.aliens.add(alien)
+
     def run_game(self):
         """Start the main loop for the game"""
         while True:
@@ -80,6 +86,7 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.ship.blitme()
+        self.aliens.draw(self.screen)
             
         # Make the most recently drawn screen visible.
         pygame.display.flip()
