@@ -82,7 +82,6 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
-
     def _check_keyup_events(self, event):
         """Respond to key releases"""
         if event.key == pygame.K_RIGHT:
@@ -99,6 +98,10 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+
+    def _update_aliens(self):
+        """Update the position of all aliens in the fleet."""
+        self.aliens.update()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
