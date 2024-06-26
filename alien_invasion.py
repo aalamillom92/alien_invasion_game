@@ -32,6 +32,9 @@ class AlienInvasion:
 
         self._create_fleet()
 
+        # Start Alien Invasion in an active state.
+        self.game_active = True
+
     def _create_fleet(self):
         """Create the fleet of aliens"""
         # Create an alien and keep adding aliens until there's no room left.
@@ -119,7 +122,7 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
-        self._check_bullet_alien_collisions()
+        self._check_bullet_alien_collision()
 
     def _check_bullet_alien_collision(self):
         """Respond to bullet-alien collisions"""
@@ -163,7 +166,7 @@ class AlienInvasion:
     def _check_aliens_bottom(self):
         """Check if any alien have reached the bottom off the screen"""
         for alien in self.aliens.sprites():
-            if alien.rect.bottom >= self.settigns.screen.height:
+            if alien.rect.bottom >= self.settings.screen_height:
                 # Treat this the same as if the ship got hit.
                 self._ship_hit()
                 break
