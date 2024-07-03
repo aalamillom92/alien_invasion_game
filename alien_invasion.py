@@ -166,7 +166,7 @@ class AlienInvasion:
             self.bullets, self.aliens, True, True)
         
         if collisions:
-            for aliens in collisions:
+            for aliens in collisions.values():
                 self.stats.score += self.settings.alien_points * len(aliens)
             self.sb.prep_score()
         
@@ -174,7 +174,7 @@ class AlienInvasion:
             # Destroy existing bullets and create a new fleet.
             self.bullets.empty()
             self._create_fleet()
-            self.settings.increase_speed()
+            self.settings.increase_speed() 
         
     def _update_aliens(self):
         """Check if the fleet is at an edge, then update positions."""
