@@ -45,7 +45,7 @@ class Scoreboard:
     def show_score(self):
         """Draw score to the screen."""
         self.screen.blit(self.score_image, self.score_rect)
-        self.screen.blit(self.high_score_image, self.score_rect)
+        self.screen.blit(self.high_score_image, self.high_score_rect)
 
     def check_high_score(self):
         """Check to see if there's a new high score"""
@@ -53,4 +53,4 @@ class Scoreboard:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
 
-            
+
